@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Intro from "../components/Intro";
 import Portfolio from "../components/Portfolio";
 import Timeline from "../components/Timeline";

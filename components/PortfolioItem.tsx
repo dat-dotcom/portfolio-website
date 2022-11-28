@@ -1,14 +1,17 @@
 import React from "react";
 import Image from "next/image";
 
-const PortfolioItem = ({ id, title, img, stack, link }) => {
+interface PortfolioItemProps {
+    id: number,
+    title: string,
+    img: string,
+    stack: string[],
+    link: string
+}
+
+const PortfolioItem = ({ id, title, img, stack, link }: PortfolioItemProps) => {
   return (
     <div className="border-2 border-stone-900 rounded-md overflow-hidden">
-      {/* <img
-        src="../public/assets/nursery-dashboard.png"
-        alt="portfolio"
-        className="w-full h-36 md:h-48 object-cover cursor-pointer"
-      /> */}
       <div className="relative w-full h-40 md:h-52">
         <Image
           src={img}

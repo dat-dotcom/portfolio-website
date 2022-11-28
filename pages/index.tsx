@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
-import Intro from "../components/Intro.jsx";
-import Portfolio from "../components/Portfolio.jsx";
-import Timeline from "../components/Timeline.jsx";
-import Contact from "../components/Contact.jsx";
-import Footer from "../components/Footer.jsx";
+import Intro from "../components/Intro";
+import Portfolio from "../components/Portfolio";
+import Timeline from "../components/Timeline";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (

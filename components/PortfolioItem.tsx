@@ -17,7 +17,12 @@ const PortfolioItem = ({ id, title, img, stack, link }: PortfolioItemProps) => {
           src={img}
           alt="portfolio"
           className="object-cover cursor-pointer"
-          layout="fill"
+          fill
+          sizes="
+                (max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
+
         />
       </div>
 
@@ -26,10 +31,10 @@ const PortfolioItem = ({ id, title, img, stack, link }: PortfolioItemProps) => {
           {title}
         </h3>
         <div className="flex flex-wrap gap-2 flex-row items-center justify-start text-xs md:text-sm">
-          {stack.map((item) => (
+          {stack.map((item, index) => (
             <span 
             className="inline-block px-2 py-1 font-semibold border-2 border-stone-900 rounded-md"
-            key={id}>
+            key={index}>
               {item}
             </span>
           ))}

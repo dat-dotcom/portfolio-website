@@ -9,7 +9,6 @@ const Portfolio = () => {
         {portfolio.map((project) => (
           <PortfolioItem
             key={project.id}
-            id={project.id}
             title={project.title}
             img={project.img}
             stack={project.stack}

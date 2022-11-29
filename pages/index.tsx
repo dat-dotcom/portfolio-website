@@ -6,30 +6,9 @@ import Timeline from "../components/Timeline";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import React, { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function Home() {
-  const [theme, setTheme] = useState<null | string>(null);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  }, []);
-
-  const handleThemeSwitch = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
-
   const sun = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -64,6 +43,25 @@ export default function Home() {
     </svg>
   );
 
+  const { systemTheme, theme, setTheme } = useTheme();
+
+  const renderThemeChanger = () => {
+    const currentTheme = theme === "system" ? systemTheme : theme;
+
+    // if(currentTheme ==="dark"){
+    return (
+      <button
+        type="button"
+        onClick={() => {
+          currentTheme === "dark" ? setTheme("light") : setTheme("dark");
+        }}
+        className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg p-1 rounded-md"
+      >
+        {currentTheme === "dark" ? sun : moon}
+      </button>
+    );
+  };
+
   return (
     <>
       <Head>
@@ -72,20 +70,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <button
-        type="button"
-        onClick={handleThemeSwitch}
-        className="fixed p-2 z-10 right-20 top-4 bg-violet-300 dark:bg-orange-300 text-lg p-1 rounded-md"
-      >
-        {theme === "dark" ? sun : moon}
-      </button>
+      { renderThemeChanger() }
+
       <div className="bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-300 min-h-screen font-inter">
         <div className="max-w-5xl w-11/12 mx-auto">
           <Intro />
           <Portfolio />
           <Timeline />
           <Contact />
-          <Footer />
+          <Footer /> 
         </div>
       </div>
     </>

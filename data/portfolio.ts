@@ -2,7 +2,6 @@ export default [
   {
     id: 1,
     title: "Nursery Management App",
-    // img: "/../public/assets/nursery-dashboard.png",
     img: "/assets/dev-portfolio.jpg",
     stack: ["HTML", "CSS", "JS", "Laravel"],
     link: "https://greenhouse.screencraft.net.au/",

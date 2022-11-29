@@ -1,4 +1,5 @@
 import React from 'react'
+import Title from './Title'
 
 const Contact = () => {
   return (
@@ -7,6 +8,7 @@ const Contact = () => {
             <form action="https://getform.io/f/710d940e-a63a-4da6-86a4-7057b3efd6ab" 
                   method='POST' 
                   className='flex flex-col w-full md:w-7/12'>
+                <Title>Contact</Title>
                 <input  type="text" 
                         name='name'
                         placeholder='Name'
